@@ -1,0 +1,29 @@
+<!-- 
+  Afficher la variable myCollection
+-->
+{{ myCollection }}
+
+<!-- 
+Itération sur une collection de donné 
+-->
+<ul *ngFor="let item of myCollection">
+  <li>{{item}}</li>
+</ul>
+
+<!-- 
+ Les conditions if 
+-->
+<section *ngIf="isTrue">
+  <p>Show me if can</p>
+</section>
+
+<!-- 
+Appeler une fonction du controlleur au click sur un bouton
+-->
+<button (click)="showMeTheSection()" >Afficher</button>
+
+<!-- 
+Data binding aller/retour 
+-->
+<h1>Bienvenue {{ userName }}</h1>
+<input type="text" [(ngModel)]="userName" >

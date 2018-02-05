@@ -1,0 +1,29 @@
+<!--
+  Binding de l'événement submit
+-->
+<form (submit)="addNewTask()">
+  <label for="title">Titre de la tâche <span *ngIf="titleError">Champ obligatoire</span></label>
+  <!-- Utiliser l'objet newTask en ngModel -->
+  <input type="text" name="title" [(ngModel)]="newTask.title" (focus)="titleError = false">
+
+  <label for="type">Type de tâche <span *ngIf="typeError">Champ obligatoire</span></label>
+  <!-- Utiliser l'objet newTask en ngModel -->
+  <select name="type"  [(ngModel)]="newTask.type" (focus)="typeError = false">
+    <option value="null">- Sélectionner -</option>
+    <option value="WORK">Travail</option>
+    <option value="LIFE">Loisir</option>
+  </select>
+
+  <input type="radio" name="isImportant" (click)="newTask.isImportant = true" > Tâche importante
+  <br>
+  <button type="submit">Ajouter</button>
+</form>
+
+<!-- Itération sur une collection de données -->
+<section *ngFor="let item of taskCollection">
+  <article>
+      <p>{{item.title}} <i>{{item.type}}</i></p>
+      <p *ngIf="item.isImportant"><b>Important</b></p>
+  </article>
+  <hr>
+</section>
