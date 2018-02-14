@@ -1,0 +1,19 @@
+{
+  "tasks": [
+    {
+        "id": 0,
+        "content": "Créer des composants",
+        "isDone": true
+      },
+      {
+        "id": 1,
+        "content": "Créer un servive",
+        "isDone": true
+      },
+      {
+        "id": 2,
+        "content": "Afficher les tâches dans le dashboard",
+        "isDone": false
+      }
+  ]
+}
