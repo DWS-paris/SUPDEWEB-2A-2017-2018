@@ -24,11 +24,25 @@ Définir le service
   /*
   Définir l'adresse de l'API
   */
-    private apiUrl = `http://localhost:3000/tasks`;
+    private apiUrl: string = `http://localhost:3000/tasks`;
   //
   
   // Injecter la class Http dans le constructeur
   constructor( private http: Http ){}
+
+
+  /*
+  Créer une fonction pour récupérer toutes les tâches à faire
+  */
+    public showTasks = (): Promise<TaskModel[]> => {
+      return this.http.get( this.apiUrl ).toPromise()
+      // Success
+      .then( data => this.dataFromApi(data)  )
+
+      // Error
+      .catch( error => this.handleError(error) );
+    };
+  //
 
 
 
@@ -46,7 +60,7 @@ Définir le service
     private handleError (error: any) {
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-      
+
       return Promise.reject(errMsg);
     }
   //

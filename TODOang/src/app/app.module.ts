@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// Importer la class HttpModule
+import { HttpModule } from '@angular/http';
+
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -28,7 +31,7 @@ import { TasksService } from './services/tasks.service';
 
   imports: [
     // Ajouter le module de route dans le tableau des imports
-    BrowserModule, Routing
+    HttpModule, BrowserModule, Routing
   ],
 
   // Les services sont à indiquer dans le tableau des providers

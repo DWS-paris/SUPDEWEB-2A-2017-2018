@@ -1,13 +1,5 @@
-<!-- 
-  Afficher les objets de la collection de données dans des articles
--->
-<section *ngFor="let item of dataCollection">
-  <!-- Utilisation fe ngClass -->
-  <article [ngClass]="{ isDone: item.isDone }" >
-    <p>{{ item.content }}</p>
-    <a routerLink="/edit/{{ item.id }}">Editer</a>
+{{ dataCollection|json }}
 
-    <button (click)="item.isDone = !item.isDone" >Inverser</button>
-  </article>
-
-</section>
+<div *ngIf="dataCollection">
+    {{ dataCollection[0]|json }}
+</div>

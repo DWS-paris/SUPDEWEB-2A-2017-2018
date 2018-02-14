@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { TaskModel } from '../../models/task.model';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -13,37 +14,26 @@ import { TaskModel } from '../../models/task.model';
 })
 export class DashboardComponent implements OnInit {
 
-  /*
-  Création d'une collection de données
-  */  
-    public dataCollection: Array<TaskModel> = [
-      {
-        id: 0,
-        content: `Créer des composants`,
-        isDone: true
-      },
-      {
-        id: 1,
-        content: `Créer un servive`,
-        isDone: true
-      },
-      {
-        id: 2,
-        content: `Afficher les tâches dans le dashboard`,
-        isDone: false
-      }
-    ];
-  //
+  // Création d'une variable pour la collection de données
+  public dataCollection: TaskModel[];
+  public errorMsg: string;
 
-  // Renseigner le service dans le constructeur
+  
+
+  // Injecter le service dans le constructeur
   constructor( private myService: TasksService ) { }
 
   
   // Fonction pour attendre le chargement du composant
   ngOnInit() {
 
-    // Appeler la fonction du service
+    // Appeler la fonction du service pour récupérer la liste de tâches
     this.myService.showTasks()
-  }
 
-}
+      // Success
+      .then( data => this.dataCollection = data)
+      // Error
+      .catch( err => this.errorMsg = err );
+  };
+
+};
