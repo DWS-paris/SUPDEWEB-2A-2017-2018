@@ -38,10 +38,21 @@ Définir le service
       return this.http.get( this.apiUrl ).toPromise()
       // Success
       .then( data => this.dataFromApi(data)  )
-
       // Error
       .catch( error => this.handleError(error) );
     };
+  //
+
+  /*
+  Créer une fonction pour modifier une tâche
+  */
+    public setIsDone = (singleTask: TaskModel): Promise<TaskModel> => {
+      return this.http.put( `${this.apiUrl}/${singleTask.id}`, singleTask ).toPromise()
+      // Success
+      .then( data => this.dataFromApi(data)  )
+      // Error
+      .catch( error => this.handleError(error) );
+    }
   //
 
 

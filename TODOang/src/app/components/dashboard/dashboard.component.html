@@ -1,5 +1,17 @@
-{{ dataCollection|json }}
+<!-- Ajouter une tâche -->
+<app-add-task></app-add-task>
 
-<div *ngIf="dataCollection">
-    {{ dataCollection[0]|json }}
-</div>
+<!-- Attendre le chargement complet de la collection de données -->
+<section *ngIf="dataCollection">
+
+    <!-- Itération  sur une collection de données -->
+    <div *ngFor="let item of dataCollection" >
+        <!-- 
+            Utilisation du partial dans l'itération
+            Envoyer la valeur de item dans le partial : []
+            Récupérer l'événement du partial : ()
+        -->
+        <app-single-task [singleItem]="item" (sendData)="getDataFromPartial($event)" ></app-single-task>
+    </div>
+
+</section>

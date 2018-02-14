@@ -7,16 +7,34 @@ import { TaskModel } from '../../models/task.model';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styles: [`
-    .isDone{ opacity: .5 }
-  `]
+  templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
   // Création d'une variable pour la collection de données
   public dataCollection: TaskModel[];
   public errorMsg: string;
+
+  // Créer une fonction pour capter l'événement du partial
+  public getDataFromPartial(evt: TaskModel): void{
+
+    // Inverser la valeur isDone
+    evt.isDone = !evt.isDone;
+    
+    // Appeler la fonction du service pour éditer une tache
+    this.myService.setIsDone(evt)
+    // Success
+    .then( data => {
+      // Msg User
+      console.log(data)
+    } )
+    // Error
+    .catch(err => {
+      // Msg User
+      console.error(err)
+    });
+    
+  };
 
   
 

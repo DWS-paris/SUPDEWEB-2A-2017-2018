@@ -1,0 +1,9 @@
+<form action="">
+  <label for="newTaskContent">Ajouter une tâche</label>
+  <input 
+    [(ngModel)]="formObject.content"
+    type="text" name="newTaskContent"
+  >
+</form>
+
+{{formObject|json}}

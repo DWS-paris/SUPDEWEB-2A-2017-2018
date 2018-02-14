@@ -1,0 +1,7 @@
+<article>
+  <!-- Utilisation de ngClass -->
+  <p [ngClass]="{isDone: singleItem.isDone}" >{{singleItem.content}}</p>
+
+  <!-- Binding de l'événement click -->
+  <button (click)="submitBtn( singleItem )" >Valider</button>
+</article>
