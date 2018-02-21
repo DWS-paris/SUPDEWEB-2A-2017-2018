@@ -22,21 +22,8 @@ const route: Routes = [
         {
             path: ``,
             component: DashboardComponent
-        },
-        {
-            path: `add`,
-            component: AddComponent
-        },
-    //
-
-    /*
-    Route dynamique
-    */
-        {
-            path: `edit/:id`,
-            component: EditComponent
         }
-   //
+    //
 ];
 
 /*

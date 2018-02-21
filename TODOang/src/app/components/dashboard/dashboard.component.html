@@ -1,5 +1,7 @@
 <!-- Ajouter une tâche -->
-<app-add-task></app-add-task>
+<app-add-task
+    (sendNewTask)="addTask($event)"
+></app-add-task>
 
 <!-- Attendre le chargement complet de la collection de données -->
 <section *ngIf="dataCollection">
@@ -11,7 +13,10 @@
             Envoyer la valeur de item dans le partial : []
             Récupérer l'événement du partial : ()
         -->
-        <app-single-task [singleItem]="item" (sendData)="getDataFromPartial($event)" ></app-single-task>
+        <app-single-task 
+            [singleItem]="item" 
+            (sendData)="getDataFromPartial($event)" 
+        ></app-single-task>
     </div>
 
 </section>

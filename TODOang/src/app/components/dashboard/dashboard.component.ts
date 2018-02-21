@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   public dataCollection: TaskModel[];
   public errorMsg: string;
 
-  // Créer une fonction pour capter l'événement du partial
+  // Créer une fonction pour capter l'événement du partial single task
   public getDataFromPartial(evt: TaskModel): void{
 
     // Inverser la valeur isDone
@@ -34,6 +34,30 @@ export class DashboardComponent implements OnInit {
       console.error(err)
     });
     
+  };
+
+  // Créer une fonction pour capter l'événement du partial formulaire
+  public addTask( evt ): void {
+    console.log( 'Dashboard', evt );
+
+    // Définir l'objet newTask
+    const newTask: TaskModel = {
+      content: evt.content,
+      isDone: false
+    }
+
+    // Appeler la fonction du service pour ajouter une tâche
+    this.myService.addTask(newTask)
+    // Success
+    .then( data => {
+      // Ajouter la nouvelle tâche dans la collection de données
+      this.dataCollection.push(data)
+    } )
+    // Error
+    .catch(err => {
+      // Msg User
+      console.error(err)
+    });
   };
 
   

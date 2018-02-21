@@ -55,6 +55,18 @@ Définir le service
     }
   //
 
+  /*
+  Créer une fonction pour ajouter une tâhce
+  */
+    public addTask = ( newTask: TaskModel ): Promise<TaskModel> => {
+      return this.http.post(this.apiUrl, newTask).toPromise()
+      // Success
+      .then( data => this.dataFromApi(data)  )
+      // Error
+      .catch( error => this.handleError(error) );
+    }
+  //
+
 
 
 

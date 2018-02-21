@@ -1,9 +1,8 @@
-<form action="">
-  <label for="newTaskContent">Ajouter une tâche</label>
+<form (submit)="submitForm()">
+  <label for="newTaskContent">Ajouter une tâche <span *ngIf="errorFormMsg">Champs obligatoire</span></label>
   <input 
+    (focus)="errorFormMsg = false"
     [(ngModel)]="formObject.content"
     type="text" name="newTaskContent"
   >
 </form>
-
-{{formObject|json}}

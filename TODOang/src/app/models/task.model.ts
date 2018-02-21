@@ -2,7 +2,9 @@
 Exporter une interface d'objet
 */
     export interface TaskModel {
-        id: Number,
+        // Propriété en option
+        id?: Number,
+        
         content: String,
         isDone: Boolean
     };
