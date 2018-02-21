@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
     <app-header></app-header>
 
     <main>
-      <router-outlet></router-outlet>
+      <app-dashboard></app-dashboard>
     </main>
     
     <app-footer></app-footer>

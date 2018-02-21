@@ -10,11 +10,7 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { AddComponent } from './components/add/add.component';
-import { EditComponent } from './components/edit/edit.component';
 
-// Importer le fichier des routes
-import { Routing } from './app.routes';
 import { FooterComponent } from './partials/footer/footer.component';
 import { HeaderComponent } from './partials/header/header.component';
 
@@ -28,8 +24,6 @@ import { AddTaskComponent } from './partials/add-task/add-task.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    AddComponent,
-    EditComponent,
     FooterComponent,
     HeaderComponent,
     SingleTaskComponent,
@@ -38,7 +32,7 @@ import { AddTaskComponent } from './partials/add-task/add-task.component';
 
   imports: [
     // Ajouter le module de route dans le tableau des imports
-    HttpModule, BrowserModule, Routing, FormsModule
+    HttpModule, BrowserModule, FormsModule
   ],
 
   // Les services sont à indiquer dans le tableau des providers
